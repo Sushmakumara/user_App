@@ -1,9 +1,9 @@
 # build stage
 FROM maven:3.9.9-eclipse-temurin-17 AS build
 WORKDIR /src
-COPY NIEUSERAPP/pom.xml .
+COPY NIEUserApp/pom.xml .
 RUN mvn -q -DskipTests dependency:go-offline
-COPY NIEUSERAPP/src ./src
+COPY NIEUserApp/src ./src
 RUN mvn -q -DskipTests package
 
 # run stage
