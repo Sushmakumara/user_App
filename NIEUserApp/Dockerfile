@@ -10,5 +10,5 @@ RUN mvn -q -DskipTests package
 FROM eclipse-temurin:17-jre
 WORKDIR /app
 COPY --from=build /src/target/*.war app.war
-EXPOSE 9900
+EXPOSE 8080
 ENTRYPOINT ["sh","-c","java -Dserver.port=${PORT:-9900} -jar app.war"]
